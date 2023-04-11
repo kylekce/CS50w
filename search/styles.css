@@ -101,7 +101,8 @@ nav a:hover {
 }
 
 .advanced-search-content {
-    display: fle;
+    display: flex;
+    
     color: var(--text-color);
     font-size: 12px;
     font-family: var(--font-family);
