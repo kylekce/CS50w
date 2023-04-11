@@ -103,8 +103,7 @@ nav a:hover {
 .advanced-search-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: ;
     color: var(--text-color);
     font-size: 12px;
     font-family: var(--font-family);
