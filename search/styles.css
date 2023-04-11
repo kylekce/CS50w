@@ -132,6 +132,5 @@ nav a:hover {
 #advanced-search-button {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
