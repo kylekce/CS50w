@@ -118,9 +118,7 @@ nav a:hover {
 
 .advanced-search-content div {
     padding-inline: 20px;
-    background-color: transparent;
-    margin: 10px 5px 10px 5px;
-    border: 2px solid var(--secondary-color);
+    
     
 }
 
