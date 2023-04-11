@@ -28,6 +28,7 @@ h1 {
 
 h2 {
     color: var(--third-text-color);
+    padding: 20px;
 }
 
 h3 {
