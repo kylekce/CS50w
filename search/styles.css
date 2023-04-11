@@ -130,7 +130,10 @@ nav a:hover {
 }
 
 .advanced-search-content-container{
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 #advanced-search-button {
