@@ -123,11 +123,11 @@ nav a:hover {
 }
 
 .advanced-search-content div input{
+    display: ;
     background-color: transparent;
     margin: 10px 5px 10px 5px;
     border: 2px solid var(--secondary-background-color);
     width: 600px;
-    fl
 }
 
 .advanced-search-button-container{
