@@ -133,5 +133,5 @@ nav a:hover {
     background-color: lightblue;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 }
