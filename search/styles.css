@@ -129,7 +129,9 @@ nav a:hover {
     width: 600px;
 }
 
-.advanced-search-content
+.advanced-search-content-container{
+    
+}
 
 #advanced-search-button {
     background-color: lightblue;
