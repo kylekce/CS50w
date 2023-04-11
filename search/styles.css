@@ -21,6 +21,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+h3 {
+    
+}
+
 .home-content {
     display: flex;
     flex-direction: column;
