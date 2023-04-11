@@ -113,8 +113,6 @@ nav a:hover {
     padding-top: 40px;
 }
 
-.advanced-search-content a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 0 10px 0 10px;
+.advanced-search-content  {
+
 }
