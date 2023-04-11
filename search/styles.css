@@ -124,6 +124,7 @@ nav a:hover {
 
 .advanced-search-content div input{
     display: flex;
+    flex-direction: row;
     
     background-color: transparent;
     margin: 10px 5px 10px 5px;
