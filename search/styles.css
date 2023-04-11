@@ -6,7 +6,7 @@
 
     /* Colors */
     --background-color: #1a1b1e;
-    --s: #303134;
+    --secondary-background-color: #303134;
     --text-color: #ffffff;
     --secondary-text-color: #ffffff80;
     --third-text-color: #ff6666;
@@ -49,7 +49,7 @@ h3 {
     border-radius: 100px;
     padding: 15px;
     width: 490px;
-    border: 2px solid var(--s);
+    border: 2px solid var(--secondary-background-color);
 }
 
 #button {
@@ -60,9 +60,9 @@ h3 {
 }
 
 #button input {
-    background-color: var(--s);
+    background-color: var(--secondary-background-color);
     color: var(--text-color);
-    border: 1px solid var(--s);
+    border: 1px solid var(--secondary-background-color);
     border-radius: 5px;
     margin: 20px 5px 10px 5px;
     padding: 10px 20px 10px 20px;
@@ -111,7 +111,7 @@ nav a:hover {
     align-items: center;
     justify-content: flex-start;
     margin-top: 20px;
-    border-top: 2px solid var(--s);
+    border-top: 2px solid var(--secondary-background-color);
     padding-top: 40px;
 }
 
@@ -125,5 +125,5 @@ nav a:hover {
 .advanced-search-content div input{
     background-color: transparent;
     margin: 10px 5px 10px 5px;
-    border: 2px solid var(--s);
+    border: 2px solid var(--secondary-background-color);
 }
