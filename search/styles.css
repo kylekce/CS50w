@@ -129,7 +129,7 @@ nav a:hover {
     background-color: transparent;
     margin: 10px 5px 10px 5px;
     border: 2px solid var(--secondary-background-color);
-    width: 600px;
+    width: 200px;
 }
 
 .advanced-search-button-container{
