@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+:root {
+    --background-color: rgba(26, 27, 30, 1);
+    --secondary-color: #303134;
+    --text-color: rgba(255, 255, 255, 1);
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --highlight-color: #e8eaed;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: arial, sans-serif;
+}
+
+h1 {
+    font-family: var(--font-family);
+    font-size: 60px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+#search-box {
+    background-color: transparent;
+    border-radius: 100px;
+    padding: 15px;
+    width: 490px;
+    border: 2px solid var(--secondary-color);
+}
+
+#button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#button input {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    margin: 20px 5px 10px 5px;
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+}
+
+#button a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#button input:hover {
+    border: 1px solid var(--highlight-color);
+    cursor: pointer;
+}
+
+input[type="text"] {
+    color: var(--text-color);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 20px 10px 0 10px;
+    font-size: 12px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.advanced-search-content {
+    color: var(--text-color);
+    font-size: 12px;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
