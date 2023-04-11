@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-
+    color: var(--third-text-color);
 }
 
 h3 {
