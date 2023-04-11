@@ -137,7 +137,7 @@ nav a:hover {
 
 #advanced-search-button {
     background-color: lightblue;
-    c
+    color: #000;
     width: 150px;
     padding-block: 6px;
 }
