@@ -115,6 +115,6 @@ nav a:hover {
 
 .advanced-search-content input {
     background-color: transparent;
-    margin: 20px 5px 10px 5px;
+    margin: 10px 5px 10px 5px;
     border: 2px solid var(--secondary-color);
 }
