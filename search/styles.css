@@ -129,7 +129,7 @@ nav a:hover {
     width: 600px;
 }
 
-.advanced-search-button {
+.advanced-search-content .advanced-search-button {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
