@@ -80,7 +80,7 @@ h3 {
     cursor: pointer;
 }
 
-#button input[type="text"] {
+#button > input[type="text"] {
     color: var(--text-color);
 }
 
