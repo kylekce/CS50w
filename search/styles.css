@@ -28,12 +28,12 @@ h1 {
 
 h2 {
     color: var(--third-text-color);
-    padding: 20px;
+    padding-inline: 20px;
 }
 
 h3 {
     color: var(--secondary-text-color);
-    padding: 20px;
+    padding-inline: 20px;
 }
 
 .home-content {
