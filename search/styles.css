@@ -130,5 +130,7 @@ nav a:hover {
 }
 
 .advanced-search-content .advanced-search-button {
-   
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
