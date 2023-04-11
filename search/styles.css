@@ -33,6 +33,7 @@ h2 {
 
 h3 {
     color: var(--secondary-text-color);
+    padding: 20px;
 }
 
 .home-content {
