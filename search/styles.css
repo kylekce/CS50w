@@ -130,6 +130,7 @@ nav a:hover {
 }
 
 #advanced-search-button {
+    background-color: ;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
