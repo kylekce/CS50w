@@ -109,5 +109,5 @@ nav a:hover {
     align-items: center;
     justify-content: flex-start;
     margin-top: 20px;
-    border-top: 2;
+    border-top: 2px solid var(--secondary-color);
 }
