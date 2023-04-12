@@ -135,7 +135,6 @@ nav a:hover {
 .advanced-search-content div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     padding-inline: 20px;
     font-size: 16px;
     color: var(--secondary-text-color);
@@ -159,8 +158,4 @@ nav a:hover {
     color: #fff;
     width: 150px;
     padding-block: 6px;
-}
-
-#advanced-search-box {
-    
 }
