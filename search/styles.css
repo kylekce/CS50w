@@ -147,12 +147,6 @@ nav a:hover {
     width: 600px;
 }
 
-.advanced-search-button-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
 #advanced-search-button {
     background-color: var(--button-color);
     color: #fff;
