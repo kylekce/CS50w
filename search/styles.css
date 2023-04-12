@@ -31,12 +31,12 @@ h3 {
 
 .logo {
     font-family: var(--google-font);
-    font-size: 40px;
+    font-size: 35px;
     color: var(--text-color);
 }
 
 .logo h1 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .content {
@@ -55,6 +55,15 @@ h3 {
     border: 2px solid var(--secondary-background-color);
 }
 
+.search-box input:hover{
+    background-color: var(--secondary-background-color);
+}
+
+.search-box input:focus {
+    background-color: var(--secondary-background-color);
+    outline: none;
+}
+
 .search-buttons {
     display: flex;
     flex-direction: row;
@@ -64,8 +73,8 @@ h3 {
 
 .search-buttons input {
     background-color: var(--secondary-background-color);
-    color: var(--text-color);
     border: 1px solid var(--secondary-background-color);
+    color: var(--text-color);
     border-radius: 5px;
     margin: 20px 5px 10px 5px;
     padding: 10px 20px 10px 20px;
