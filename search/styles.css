@@ -9,9 +9,10 @@
     --secondary-background-color: #303134;
     --text-color: #ffffff;
     --secondary-text-color: #ffffff80;
-    --third-text-color: #ff6666;
+    --third-text-color: #ce5e5e;
     --placeholder-color: #ffffff80;
     --highlight-color: #e8eaed;
+    --button-color: #6e9cb9;
 }
 
 body {
@@ -150,7 +151,7 @@ nav a:hover {
 }
 
 #advanced-search-button {
-    background-color: rgb(110, 156, 185);
+    background-color: var(--button-color);
     color: #fff;
     width: 150px;
     padding-block: 6px;
