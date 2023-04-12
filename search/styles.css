@@ -18,7 +18,7 @@
 body {
     background-color: var(--background-color);
     font-family: arial, sans-serif;
-    margin: none;
+    margin: 0px;
 }
 
 .header {
