@@ -23,7 +23,7 @@ body {
     font-family: var(--google-font);
     font-size: 60px;
     color: var(--text-color);
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 h2 {
@@ -44,7 +44,7 @@ h3 {
     height: 70vh;
 }
 
-#search-box {
+.home-search input {
     background-color: transparent;
     border-radius: 100px;
     padding: 15px;
@@ -66,6 +66,12 @@ h3 {
     border-radius: 5px;
     margin: 20px 5px 10px 5px;
     padding: 10px 20px 10px 20px;
+    font-size: 12px;
+}
+
+.home-buttons a {
+    color: var(--text-color);
+    text-decoration: none;
     font-size: 12px;
 }
 
