@@ -29,17 +29,17 @@ h3 {
     padding-inline: 20px;
 }
 
-.home-logo {
+.logo {
     font-family: var(--google-font);
     font-size: 40px;
     color: var(--text-color);
 }
 
-.home-logo h1 {
+.logo h1 {
     margin-bottom: 50px;
 }
 
-.home-content {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@ h3 {
     height: 70vh;
 }
 
-.home-search input {
+.search-box input {
     background-color: transparent;
     border-radius: 100px;
     padding: 15px;
@@ -55,14 +55,14 @@ h3 {
     border: 2px solid var(--secondary-background-color);
 }
 
-.home-buttons {
+.search-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.home-buttons input {
+.search-buttons input {
     background-color: var(--secondary-background-color);
     color: var(--text-color);
     border: 1px solid var(--secondary-background-color);
@@ -72,13 +72,13 @@ h3 {
     font-size: 12px;
 }
 
-.home-buttons a {
+.search-buttons a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 12px;
 }
 
-.home-buttons input:hover {
+.search-buttons input:hover {
     border: 1px solid var(--highlight-color);
     cursor: pointer;
 }
