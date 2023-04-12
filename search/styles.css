@@ -19,13 +19,6 @@ body {
     font-family: arial, sans-serif;
 }
 
-.home-logo {
-    font-family: var(--google-font);
-    font-size: 60px;
-    color: var(--text-color);
-    margin-bottom: 0px;
-}
-
 h2 {
     color: var(--third-text-color);
     padding-inline: 20px;
@@ -34,6 +27,16 @@ h2 {
 h3 {
     color: var(--secondary-text-color);
     padding-inline: 20px;
+}
+
+.home-logo {
+    font-family: var(--google-font);
+    font-size: 40px;
+    color: var(--text-color);
+}
+
+.home-logo h1 {
+    margin-bottom: 50px;
 }
 
 .home-content {
