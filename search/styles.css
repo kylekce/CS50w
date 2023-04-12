@@ -19,7 +19,7 @@ body {
     font-family: arial, sans-serif;
 }
 
-h1 {
+.home-content {
     font-family: var(--google-font);
     font-size: 60px;
     color: var(--text-color);
