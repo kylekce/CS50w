@@ -19,11 +19,11 @@ body {
     font-family: arial, sans-serif;
 }
 
-.home-content {
+.home-logo {
     font-family: var(--google-font);
     font-size: 60px;
     color: var(--text-color);
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 h2 {
@@ -52,14 +52,14 @@ h3 {
     border: 2px solid var(--secondary-background-color);
 }
 
-#button {
+.home-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#button input {
+.home-buttons input {
     background-color: var(--secondary-background-color);
     color: var(--text-color);
     border: 1px solid var(--secondary-background-color);
@@ -69,13 +69,7 @@ h3 {
     font-size: 12px;
 }
 
-#button a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 12px;
-}
-
-#button input:hover {
+.home-buttons input:hover {
     border: 1px solid var(--highlight-color);
     cursor: pointer;
 }
