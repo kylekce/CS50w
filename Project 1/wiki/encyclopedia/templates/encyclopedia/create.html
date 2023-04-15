@@ -9,11 +9,9 @@
 
     <div class="form-floating">
         <form action="{% url 'create' %}" method="POST">
-            <label for="floatingInput">Title: </label>
-            <input type="text" name="title" placeholder="Title" id="floatingInput">
-            <textarea name="content" placeholder="Content" style="width: 60vw; height: 300px;"
-                class="form-control" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Content: </label>
+            <input class="form-control" type="text" name="title" placeholder="Title" style="width: 60vw">
+            <br>
+            <textarea class="form-control" name="content" placeholder="Content" style="width: 60vw; height: 300px;"></textarea>
             <br>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
