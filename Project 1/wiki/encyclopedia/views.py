@@ -7,11 +7,7 @@ from . import util
 def convertMd(title):
     content = util.get_entry(title)
     markdowner = markdown.Markdown()
-
-    if content is None:
-        content = util.get_entry(title.capitalize())
-    if content is None:
-        content = util.get_entry(title.upper())
+    
     if content is None:
         return None
     else:
