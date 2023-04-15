@@ -34,4 +34,7 @@ def entry(request, title):
 
 
 def search(request):
-    return
+    if request.method == "POST":
+        query = request.POST["q"]
+        entries = util.list_entries()
+        
