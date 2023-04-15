@@ -63,7 +63,7 @@ def create(request):
         content = request.POST["content"]
         if title in util.list_entries():
             return render(request, "encyclopedia/error.html", {
-                "message": "Sorry, but the page you requested could not be found."
+                "message": "Sorry, but the page you requested is already exists."
             })
         else:
             util.save_entry(title, content)
