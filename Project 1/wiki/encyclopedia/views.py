@@ -18,10 +18,11 @@ def index(request):
         "entries": util.list_entries()
     })
 
+
 def entry(request, title):
     content = convertMd(title)
     if content is None:
-        return render(request, "encyclopedia/error.html", {
-            "error": "Page not found"
-        })
-    return 
+        return render(request, "encyclopedia/error.html")
+    else:
+        return render(request, "encyclopedia/entry.html")
+    return
