@@ -58,4 +58,18 @@ def search(request):
 
 
 def create(request):
-    return
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = request.POST["content"]
+        if title in util.list_entries():
+            return render(request, "encyclopedia/error.html", {
+                "message": "Sorry, but the page you requested could not be found."
+            })
+        else:
+            util.save_entry(title, content)
+            return render(request, "encyclopedia/entry.html", {
+                "title": title,
+                "content": markdown.markdown(content)
+            })
+
+    return render(request, "encyclopedia/create.html")
