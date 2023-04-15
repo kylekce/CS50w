@@ -8,7 +8,7 @@
     <h1>Result</h1>
     <ul>
         {% for entry in recommendations %}
-            <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
+            <li>{{ entry }}</li>
         {% endfor %}
     </ul>
 
