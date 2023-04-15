@@ -52,6 +52,7 @@ def search(request):
             for entry in entries:
                 if query.lower() in entry.lower():
                     recomendations.append(entry)
+                    print (entry)
             return render(request, "encyclopedia/result.html", {
                 "recomendations": recomendations
             })
