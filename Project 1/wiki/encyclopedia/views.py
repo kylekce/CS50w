@@ -7,7 +7,7 @@ from . import util
 def convertMd(title):
     content = util.get_entry(title)
     markdowner = markdown.Markdown()
-    
+
     if content is None:
         return None
     else:
@@ -63,9 +63,10 @@ def create(request):
             })
         else:
             util.save_entry(title, content)
+            content = convertMd(title)
             return render(request, "encyclopedia/entry.html", {
                 "title": title,
-                "content": markdown.markdown(content)
+                "content": content
             })
 
     return render(request, "encyclopedia/create.html")
