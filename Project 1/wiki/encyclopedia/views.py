@@ -68,5 +68,7 @@ def create(request):
                 "title": title,
                 "content": content
             })
-
     return render(request, "encyclopedia/create.html")
+
+def edit(request):
+    return

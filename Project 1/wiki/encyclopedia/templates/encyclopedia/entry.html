@@ -7,4 +7,9 @@
 {% block body %}
     <p>{{ content | safe }}</p>
 
+    <form action="{% url 'edit' %}" method="POST">
+        <input type="hidden" name="title" value="{{ title }}">
+        <input type="submit" value="Edit" class="btn btn-danger">
+    </form>
+
 {% endblock %}
