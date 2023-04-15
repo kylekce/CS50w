@@ -70,6 +70,7 @@ def create(request):
             })
     return render(request, "encyclopedia/create.html")
 
+
 def edit(request):
     if request.method == "POST":
         title = request.POST["title"]
@@ -78,7 +79,15 @@ def edit(request):
             "title": title,
             "content": content
         })
-    return
+
 
 def save(request):
-    return
+    if request.method == "POST":
+        title = request.POST["title"]
+        content = request.POST["content"]
+        util.save_entry(title, content)
+        content = convertMd(title)
+        return render(request, "encyclopedia/entry.html", {
+            "title": title,
+            "content": content
+        })
