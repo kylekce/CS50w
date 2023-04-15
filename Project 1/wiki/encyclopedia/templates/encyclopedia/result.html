@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Result</h1>
+    <h1>All Pages</h1>
+
     <ul>
-        <li>0</li>
-        {% for x in recommendations %}
-            <li>{{ x }}</li>
+        {% for entry in recomendations %}
+            <li><a href="{% url 'entry' title=entry %}" >{{ entry }}</li>
         {% endfor %}
     </ul>
 
