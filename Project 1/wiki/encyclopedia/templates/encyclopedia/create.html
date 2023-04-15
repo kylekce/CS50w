@@ -10,8 +10,9 @@
     <form action="{% url 'create' %}" method="POST">
         <label for="title">Title: </label>
         <input type="text" name="title" placeholder="Title">
-        <label for="content">Content: </label>
-        <textarea name="content" placeholder="Content" style="width: 60vw; height: 300px;" class="form-control"></textarea>
+       
+        <textarea name="content" placeholder="Content" style="width: 60vw; height: 300px;" class="form-control" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Content: </label>
         <br>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
