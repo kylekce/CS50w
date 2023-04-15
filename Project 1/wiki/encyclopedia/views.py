@@ -79,3 +79,6 @@ def edit(request):
             "content": content
         })
     return
+
+def save(request):
+    return
