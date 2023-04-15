@@ -8,10 +8,12 @@
     <h1>New Page</h1>
 
     <form action="{% url 'create' %}" method="POST">
-    <label for="title">Title</label>
-    <input type="text" name="title" placeholder="Title">
-    <label for="content">Content</label>
-    <textarea name="content" rows="4" col="50" placeholder="Content"></textarea>
+        <label for="title">Title: </label>
+        <input type="text" name="title" placeholder="Title">
+        <label for="content">Content: </label>
+        <textarea name="content" placeholder="Content"></textarea>
+        <br>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 
 {% endblock %}
