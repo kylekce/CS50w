@@ -36,5 +36,9 @@ def entry(request, title):
 def search(request):
     if request.method == "POST":
         query = request.POST["q"]
-        entries = util.list_entries()
-        
+        content = convertMd(query)
+        if content is not None:
+            return render(request, "encyclopedia/entry.html", {
+                "title": query,
+                "content": content
+            })
