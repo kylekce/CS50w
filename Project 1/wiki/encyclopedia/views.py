@@ -55,3 +55,7 @@ def search(request):
             return render(request, "encyclopedia/result.html", {
                 "recomendations": recomendations
             })
+
+
+def create(request):
+    return
