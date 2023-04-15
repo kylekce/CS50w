@@ -29,5 +29,9 @@ def entry(request, title):
         return render(request, "encyclopedia/entry.html", {
             "title": title,
             "content": content
-            })
+        })
+    return
+
+
+def search(request):
     return
