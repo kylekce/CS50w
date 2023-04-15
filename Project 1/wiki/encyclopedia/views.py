@@ -10,9 +10,9 @@ def convertMd(title):
 
     if content is None:
         content = util.get_entry(title.capitalize())
-    elif content is None:
+    if content is None:
         content = util.get_entry(title.upper())
-    elif content is None:
+    if content is None:
         return None
     else:
         return markdowner.convert(content)
@@ -45,4 +45,13 @@ def search(request):
             return render(request, "encyclopedia/entry.html", {
                 "title": query,
                 "content": content
+            })
+        else:
+            entries = util.list_entries()
+            reccomendations = []
+            for entry in entries:
+                if query.lower() in entry.lower():
+                    reccomendations.append(entry)
+            return render(request, "encyclopedia/result.html", {
+                "reccomendations": reccomendations
             })
