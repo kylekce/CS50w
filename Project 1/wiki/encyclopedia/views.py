@@ -22,7 +22,9 @@ def index(request):
 def entry(request, title):
     content = convertMd(title)
     if content is None:
-        return render(request, "encyclopedia/error.html")
+        return render(request, "encyclopedia/error.html", {
+            "message": "Sorry, but the page you requested could not be found."
+        })
     else:
         return render(request, "encyclopedia/entry.html")
     return
