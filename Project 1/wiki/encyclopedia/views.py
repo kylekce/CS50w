@@ -48,10 +48,10 @@ def search(request):
             })
         else:
             entries = util.list_entries()
-            reccomendations = []
+            recomendations = []
             for entry in entries:
                 if query.lower() in entry.lower():
-                    reccomendations.append(entry)
+                    recomendations.append(entry)
             return render(request, "encyclopedia/result.html", {
-                "reccomendations": reccomendations
+                "recomendations": recomendations
             })
