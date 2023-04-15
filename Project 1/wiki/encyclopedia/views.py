@@ -39,18 +39,18 @@ def entry(request, title):
 
 def search(request):
     if request.method == "POST":
-        query = request.POST["q"]
-        content = convertMd(query)
+        entry_search = request.POST["q"]
+        content = convertMd(entry_search)
         if content is not None:
             return render(request, "encyclopedia/entry.html", {
-                "title": query,
+                "title": entry_search,
                 "content": content
             })
         else:
             entries = util.list_entries()
             recomendations = []
             for entry in entries:
-                if query.lower() in entry.lower():
+                if entry_search.lower() in entry.lower():
                     recomendations.append(entry)
             return render(request, "encyclopedia/result.html", {
                 "recomendations": recomendations
