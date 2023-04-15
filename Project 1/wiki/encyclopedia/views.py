@@ -7,7 +7,12 @@ from . import util
 def convertMd(title):
     content = util.get_entry(title)
     markdowner = markdown.Markdown()
+
     if content is None:
+        content = util.get_entry(title.capitalize())
+    elif content is None:
+        content = util.get_entry(title.upper())
+    elif content is None:
         return None
     else:
         return markdowner.convert(content)
@@ -30,7 +35,6 @@ def entry(request, title):
             "title": title,
             "content": content
         })
-    return
 
 
 def search(request):
