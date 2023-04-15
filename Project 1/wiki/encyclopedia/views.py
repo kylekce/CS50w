@@ -47,9 +47,9 @@ def search(request):
                 "content": content
             })
         else:
-            entries = util.list_entries()
+            allEntries = util.list_entries()
             recomendations = []
-            for entry in entries:
+            for entry in allEntries:
                 if entry_search.lower() in entry.lower():
                     recomendations.append(entry)
             return render(request, "encyclopedia/result.html", {
