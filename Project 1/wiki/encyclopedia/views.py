@@ -73,6 +73,7 @@ def create(request):
 
 
 def edit(request):
+    print("edit")
     if request.method == "POST":
         title = request.POST["title"]
         content = util.get_entry(title)
@@ -83,6 +84,7 @@ def edit(request):
 
 
 def save(request):
+    print("save")
     if request.method == "POST":
         title = request.POST["title"]
         content = request.POST["content"]
