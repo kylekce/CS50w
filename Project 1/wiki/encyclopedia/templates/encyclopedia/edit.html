@@ -1,21 +1,23 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Encyclopedia
+Encyclopedia
 {% endblock %}
 
 {% block body %}
-    <h1>Edit Page</h1>
+<h1>Edit Page</h1>
 
-    <div class="form-floating">
-        <form action="{% url 'save' %}" method="POST">
-            {% csrf_token %}
-            <input class="form-control" type="text" name="title" value="{{ title }}" placeholder="Title" style="width: 60vw">
-            <br>
-            <textarea class="form-control" name="content" placeholder="Content" style="width: 60vw; height: 300px;">{{ content }}</textarea>
-            <br>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-    </div>
+<div class="form-floating">
+    <form action="{% url 'save' %}" method="POST">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="title" value="{{ title }}" placeholder="Title"
+            style="width: 60vw">
+        <br>
+        <textarea class="form-control" name="content" placeholder="Content"
+            style="width: 60vw; height: 300px;">{{ content }}</textarea>
+        <br>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
 
 {% endblock %}
