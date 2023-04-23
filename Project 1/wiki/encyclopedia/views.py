@@ -88,6 +88,7 @@ def save(request):
         content = request.POST["content"]
         util.save_entry(title, content)
         new_content = convertMd(title)
+        print(new_content + " " + title)
         return render(request, "encyclopedia/entry.html", {
             "title": title,
             "content": new_content
