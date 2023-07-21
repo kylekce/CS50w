@@ -3,11 +3,16 @@
 {% block body %}
 <h2>Create New Listings</h2>
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Title">
 </div>
 <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" rows="3"></textarea>
 </div>
+<div class="mb-3">
+    <label for="image" class="form-label">Image URL</label>
+    <input type="text" class="form-control" id="image" placeholder="Image URL">
+</div>
+
 {% endblock %}
