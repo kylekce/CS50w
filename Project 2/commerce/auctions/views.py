@@ -33,7 +33,9 @@ def create_listing(request):
 
         return HttpResponseRedirect(reverse("index"))
     else:
+        # Get all categories
         categories = Category.objects.all()
+
         return render(request, "auctions/create_listing.html", {
             "categories": categories
         })
