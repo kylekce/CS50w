@@ -6,17 +6,26 @@
     <label for="title" class="form-label">Title</label>
     <input type="text" class="form-control" id="title" placeholder="Title">
 </div>
+
 <div class="mb-3">
     <label for="description" class="form-label">Description</label>
     <textarea class="form-control" id="description" rows="3"></textarea>
 </div>
+
 <div class="mb-3">
     <label for="image" class="form-label">Image URL</label>
     <input type="url" class="form-control" id="image" placeholder="URL Address">
 </div>
+
 <div class="mb-3">
     <label for="price" class="form-label">Price</label>
     <input type="number" class="form-control" id="price" placeholder="Price">
 </div>
 
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="active" checked>
+    <label class="form-check-label" for="active">
+        Active
+    </label>
+</div>
 {% endblock %}
