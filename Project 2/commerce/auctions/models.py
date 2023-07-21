@@ -9,7 +9,7 @@ class Category(models.Model):
     name = models.CharField(max_length=64)
 
     def __str__(self):
-        return f"{self.name}"
+        return f'{self.name}'
 
 class Listing(models.Model):
     title = models.CharField(max_length=64)
@@ -18,4 +18,7 @@ class Listing(models.Model):
     price = models.FloatField()
     is_active = models.BooleanField(default=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="user") 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name="category") 
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name="category")
+
+    def __str__(self):
+        return f'{self.title}'
