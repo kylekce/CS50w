@@ -11,10 +11,32 @@ def index(request):
 
 def create_listing(request):
     if request.method == "POST":
-        pass
+        # Get form information
+        title = request.POST["title"]
+        description = request.POST["description"]
+        image = request.POST["image"]
+        price = request.POST["price"]
+        category = request.POST["category"]
+
+        owner = request.user
+
+        # Create new listing
+        new_listing = Listing(
+            title=title,
+            description=description,
+            image=image,
+            price=price,
+            category=Category.objects.get(name=category),
+            owner=owner
+            )
+        new_listing.save()
+
+        return HttpResponseRedirect(reverse("index"))
     else:
         categories = Category.objects.all()
-        return render(request, "auctions/create_listing.html")
+        return render(request, "auctions/create_listing.html", {
+            "categories": categories
+        })
 
 def login_view(request):
     if request.method == "POST":
