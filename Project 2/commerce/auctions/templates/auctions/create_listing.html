@@ -2,7 +2,7 @@
 
 {% block body %}
 <h2>Create New Listings</h2>
-<form action="{% url 'create' %}" method="post">
+<form action="{% url 'create_listing' %}" method="post">
     {% csrf_token %}
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
@@ -27,7 +27,6 @@
     <div class="mb-3">
         <label for="category" class="form-label">Category:</label>
         <select class="form-select" name="category" id="category">
-            <option selected>Open this select menu</option>
             {% for category in categories %}
             <option value="{{ category }}">{{ category.name }}</option>
             {% endfor %}

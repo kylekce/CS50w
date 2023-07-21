@@ -7,7 +7,44 @@ from django.urls import reverse
 from .models import User, Category, Listing
 
 def index(request):
-    return render(request, "auctions/index.html")
+    # Get all active listings
+    listings = Listing.objects.filter(is_active=True)
+
+    # Get all categories
+    categories = Category.objects.all()
+
+    return render(request, "auctions/index.html", {
+        "listings": listings,
+        "categories": categories
+    })
+
+
+def display_category(request):
+    if request.method == "POST":
+        # Get all active listings and filter by category
+        listings = Listing.objects.filter(is_active=True, category=Category.objects.get(name=request.POST["category"]))
+
+        # Get all categories
+        categories = Category.objects.all()
+
+        return render(request, "auctions/index.html", {
+            "listings": listings,
+            "categories": categories
+        })
+
+
+def listing(request, listing_id):
+    # Check if listing is in user's watchlist
+    if request.user.is_authenticated:
+        watchlist = Listing.objects.get(pk=listing_id).watchlist.filter(username=request.user.username).exists()
+    else:
+        watchlist = False
+
+    return render(request, "auctions/listing.html", {
+        "listing": Listing.objects.get(pk=listing_id),
+        "watchlist": watchlist
+    })
+
 
 def create_listing(request):
     if request.method == "POST":
@@ -39,6 +76,21 @@ def create_listing(request):
         return render(request, "auctions/create_listing.html", {
             "categories": categories
         })
+
+
+def remove_watchlist(request, listing_id):
+    # Remove listing from user's watchlist
+    listing = Listing.objects.get(pk=listing_id)
+    listing.watchlist.remove(request.user)
+
+    return HttpResponseRedirect(reverse("listing", args=(listing_id,)))
+
+def add_watchlist(request, listing_id):
+    # Add listing to user's watchlist
+    listing = Listing.objects.get(pk=listing_id)
+    listing.watchlist.add(request.user)
+
+    return HttpResponseRedirect(reverse("listing", args=(listing_id,)))
 
 def login_view(request):
     if request.method == "POST":
