@@ -54,7 +54,7 @@
             </form>
             {% endif %}
 
-            {% if listing.owner == user.username %}
+            {% if is_owner %}
             <form action="{% url 'close_listing' listing_id=listing.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Close Listing</button>
