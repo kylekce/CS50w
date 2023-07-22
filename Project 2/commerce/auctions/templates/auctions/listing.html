@@ -53,6 +53,12 @@
                 <button type="submit" class="btn btn-success">Add to Watchlist</button>
             </form>
             {% endif %}
+
+            {% if listing.owner == user.username %}
+            <form action="{% url 'close_listing' listing_id=listing.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Close Listing</button>
+            </form>
         </div>
         {% endif %}
     </div>
