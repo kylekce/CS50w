@@ -20,6 +20,13 @@ def index(request):
 
 
 def display_watchlist(request):
+    # Check if user is authenticated
+    if not request.user.is_authenticated:
+        return render(request, "auctions/login.html", {
+            "message": "Please login to view your watchlist."
+        })
+
+    # Get user's watchlist
     user = request.user
     listings = user.watchlist.all()
 
@@ -87,12 +94,62 @@ def listing(request, listing_id):
     else:
         watchlist = False
 
-    return render(request, "auctions/listing.html", {
+    # Check if listing is active
+    is_active = Listing.objects.get(pk=listing_id).is_active
+
+    # Check if listing is closed and user is the winner
+    if is_active == False and Listing.objects.get(pk=listing_id).price.bidder.username == request.user.username:
+        return render(request, "auctions/listing.html", {
+            "listing": Listing.objects.get(pk=listing_id),
+            "watchlist": watchlist,
+            "comments": Comment.objects.filter(listing=listing_id),
+            "message": "You won the auction!",
+            "update": True,
+            "error": False,
+            "is_owner": Listing.objects.get(pk=listing_id).owner.username == request.user.username,
+            "is_active": is_active,
+        })
+    # Check if listing is closed and user is not the winner
+    elif is_active == False:
+        return render(request, "auctions/listing.html", {
+            "listing": Listing.objects.get(pk=listing_id),
+            "watchlist": watchlist,
+            "comments": Comment.objects.filter(listing=listing_id),
+            "message": "Listing closed.",
+            "update": True,
+            "error": False,
+            "is_owner": Listing.objects.get(pk=listing_id).owner.username == request.user.username,
+            "is_active": is_active,
+        })
+    # Display if listing is active
+    else:
+        return render(request, "auctions/listing.html", {
         "listing": Listing.objects.get(pk=listing_id),
         "watchlist": watchlist,
         "comments": Comment.objects.filter(listing=listing_id),
-        "error_message": "No error."
+        "error_message": "No error.",
+        "is_owner": Listing.objects.get(pk=listing_id).owner.username == request.user.username,
+        "is_active": is_active,
     })
+
+
+def close_listing(request, listing_id):
+    # Get listing
+    listing = Listing.objects.get(pk=listing_id)
+
+    # Close listing
+    listing.is_active = False
+    listing.save()
+
+    return render(request, "auctions/listing.html", {
+            "listing": Listing.objects.get(pk=listing_id),
+            "watchlist": Listing.objects.get(pk=listing_id).watchlist.filter(username=request.user.username).exists(),
+            "comments": Comment.objects.filter(listing=listing_id),
+            "message": "Listing closed.",
+            "update": True,
+            "error": False,
+            "is_active": False,
+        })
 
 
 def add_comment(request, listing_id):
@@ -113,6 +170,9 @@ def add_bid(request, listing_id):
 
     # Get current bid
     current_bid = Listing.objects.get(pk=listing_id).price.bid
+
+    # Check if listing is active
+    is_active = Listing.objects.get(pk=listing_id).is_active
 
     # Check if bid is higher than current bid
     if bid > current_bid:
@@ -135,6 +195,8 @@ def add_bid(request, listing_id):
             "message": "Bid success! You are now the highest bidder",
             "update": True,
             "error": False,
+            "is_owner": Listing.objects.get(pk=listing_id).owner.username == request.user.username,
+            "is_active": is_active,
         })
     else:
         # Display error message
@@ -144,7 +206,9 @@ def add_bid(request, listing_id):
             "comments": Comment.objects.filter(listing=listing_id),
             "message": "Bid must be higher than current bid.",
             "update": True,
-            "error": True
+            "error": True,
+            "is_owner": Listing.objects.get(pk=listing_id).owner.username == request.user.username,
+            "is_active": is_active,
         })
 
 
