@@ -23,6 +23,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'display_watchlist' %}">Watchlist</a>
+        </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
             <a class="nav-link" href="{% url 'create_listing' %}">Create Listing</a>

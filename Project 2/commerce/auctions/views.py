@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, Category, Listing
+from .models import User, Category, Listing, Comment, Bid
 
 def index(request):
     # Get all active listings
@@ -17,6 +17,53 @@ def index(request):
         "listings": listings,
         "categories": categories
     })
+
+
+def display_watchlist(request):
+    user = request.user
+    listings = user.watchlist.all()
+
+    return render(request, "auctions/watchlist.html", {
+        "listings": listings
+        })
+
+
+def create_listing(request):
+    if request.method == "POST":
+        # Get form information
+        title = request.POST["title"]
+        description = request.POST["description"]
+        image = request.POST["image"]
+        price = request.POST["price"]
+        category = request.POST["category"]
+
+        # Create a new bid
+        bid = Bid(
+            bidder=request.user,
+            bid=float(price),
+            )
+        bid.save()
+
+
+        # Create new listing
+        new_listing = Listing(
+            title=title,
+            description=description,
+            image=image,
+            price=bid,
+            category=Category.objects.get(name=category),
+            owner=request.user
+            )
+        new_listing.save()
+
+        return HttpResponseRedirect(reverse("index"))
+    else:
+        # Get all categories
+        categories = Category.objects.all()
+
+        return render(request, "auctions/create_listing.html", {
+            "categories": categories
+        })
 
 
 def display_category(request):
@@ -42,39 +89,62 @@ def listing(request, listing_id):
 
     return render(request, "auctions/listing.html", {
         "listing": Listing.objects.get(pk=listing_id),
-        "watchlist": watchlist
+        "watchlist": watchlist,
+        "comments": Comment.objects.filter(listing=listing_id),
+        "error_message": "No error."
     })
 
 
-def create_listing(request):
-    if request.method == "POST":
-        # Get form information
-        title = request.POST["title"]
-        description = request.POST["description"]
-        image = request.POST["image"]
-        price = request.POST["price"]
-        category = request.POST["category"]
+def add_comment(request, listing_id):
+    # Create new comment
+    new_comment = Comment(
+        author=request.user,
+        listing=Listing.objects.get(pk=listing_id),
+        comment=request.POST["comment"]
+        )
+    new_comment.save()
 
-        owner = request.user
+    return HttpResponseRedirect(reverse("listing", args=(listing_id,)))
 
-        # Create new listing
-        new_listing = Listing(
-            title=title,
-            description=description,
-            image=image,
-            price=price,
-            category=Category.objects.get(name=category),
-            owner=owner
+
+def add_bid(request, listing_id):
+    # Get bid amount
+    bid = float(request.POST["bid"])
+
+    # Get current bid
+    current_bid = Listing.objects.get(pk=listing_id).price.bid
+
+    # Check if bid is higher than current bid
+    if bid > current_bid:
+        # Create new bid
+        new_bid = Bid(
+            bidder=request.user,
+            bid=bid
             )
-        new_listing.save()
+        new_bid.save()
 
-        return HttpResponseRedirect(reverse("index"))
+        # Update listing with new bid
+        listing = Listing.objects.get(pk=listing_id)
+        listing.price = new_bid
+        listing.save()
+
+        return render(request, "auctions/listing.html", {
+            "listing": Listing.objects.get(pk=listing_id),
+            "watchlist": Listing.objects.get(pk=listing_id).watchlist.filter(username=request.user.username).exists(),
+            "comments": Comment.objects.filter(listing=listing_id),
+            "message": "Bid success! You are now the highest bidder",
+            "update": True,
+            "error": False,
+        })
     else:
-        # Get all categories
-        categories = Category.objects.all()
-
-        return render(request, "auctions/create_listing.html", {
-            "categories": categories
+        # Display error message
+        return render(request, "auctions/listing.html", {
+            "listing": Listing.objects.get(pk=listing_id),
+            "watchlist": Listing.objects.get(pk=listing_id).watchlist.filter(username=request.user.username).exists(),
+            "comments": Comment.objects.filter(listing=listing_id),
+            "message": "Bid must be higher than current bid.",
+            "update": True,
+            "error": True
         })
 
 
@@ -85,12 +155,14 @@ def remove_watchlist(request, listing_id):
 
     return HttpResponseRedirect(reverse("listing", args=(listing_id,)))
 
+
 def add_watchlist(request, listing_id):
     # Add listing to user's watchlist
     listing = Listing.objects.get(pk=listing_id)
     listing.watchlist.add(request.user)
 
     return HttpResponseRedirect(reverse("listing", args=(listing_id,)))
+
 
 def login_view(request):
     if request.method == "POST":
