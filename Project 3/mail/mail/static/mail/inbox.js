@@ -86,8 +86,8 @@ function load_mailbox(mailbox) {
                 emailDiv.innerHTML = `
                   <div class="row">
                     <span class="sender col-2">${email.sender}</span>
-                    <span class="subject col-6">${email.subject}</span>
-                    <span class="timestamp col-4">${email.timestamp}</span>
+                    <span class="subject col-7">${email.subject}</span>
+                    <span class="timestamp col-3">${email.timestamp}</span>
                   </div>
                 `;
 
