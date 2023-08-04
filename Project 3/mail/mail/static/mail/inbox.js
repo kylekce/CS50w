@@ -147,10 +147,12 @@ function view_email(email_id, mailbox) {
                     <span><strong>Timestamp:</strong> ${email.timestamp}</span>
                   </div>
 
-                  <div class="col-4">
-                    <div class="btn-group" role="group">
-                      <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
-                      <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
+                  <div class="col-4 d-flex justify-content-end">
+                    <div>
+                      <div class="btn-group" role="group">
+                        <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
+                        <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
+                      </div>
                     </div>
                   </div>
                 </div>
