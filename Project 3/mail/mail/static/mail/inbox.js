@@ -105,7 +105,7 @@ function load_mailbox(mailbox) {
                     emailDiv.classList.add("bg-secondary");
                 } else {
                     emailDiv.classList.add("read");
-                    emailDiv.classList.remove("bg-dark-subtle");
+                    emailDiv.classList.remove("bg-secondary");
                     emailDiv.classList.add("bg-light");
                 }
             });
