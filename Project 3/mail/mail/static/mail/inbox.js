@@ -26,8 +26,7 @@ function compose_email() {
     document.querySelector("#compose-body").value = "";
 }
 
-function send_email(event) {
-    event.preventDefault();
+function send_email() {
     console.log("You clicked send!");
 }
 
