@@ -81,7 +81,6 @@ function load_mailbox(mailbox) {
                 emailDiv.classList.add("border");
                 emailDiv.classList.add("border-dark");
                 emailDiv.classList.add("p-1");
-                // emailDiv.classList.add("mb-1");
 
                 // Add the email to the div
                 emailDiv.innerHTML = `
@@ -158,5 +157,11 @@ function view_email(email_id, mailbox) {
 
                 <div>${email.body}</div>
             `;
+
+            // Add a click event listener to the archive button
+            document.querySelector("#archive").addEventListener("click", () => {
+                // Archive or unarchive the email
+                archive_email(email_id, mailbox);
+            });
         });
 }
