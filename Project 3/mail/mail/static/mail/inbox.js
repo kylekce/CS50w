@@ -78,7 +78,7 @@ function load_mailbox(mailbox) {
                 const emailDiv = document.createElement("div");
 
                 // Add the class to the div
-                emailDiv.classList.add("email");
+                emailDiv.classList.add("email border");
 
                 // Add the email to the div
                 emailDiv.innerHTML = `
