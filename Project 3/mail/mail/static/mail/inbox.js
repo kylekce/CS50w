@@ -28,6 +28,26 @@ function compose_email() {
 
 function send_email() {
     console.log("You clicked send!");
+
+    // Get the values from the form
+    const recipients = document.querySelector("#compose-recipients").value;
+    const subject = document.querySelector("#compose-subject").value;
+    const body = document.querySelector("#compose-body").value;
+
+    // Send the email
+    fetch("/emails", {
+        method: "POST",
+        body: JSON.stringify({
+            recipients: recipients,
+            subject: subject,
+            body: body,
+        }),
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            // Print result
+            console.log(result);
+        });
 }
 
 function load_mailbox(mailbox) {
