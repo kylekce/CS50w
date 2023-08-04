@@ -84,9 +84,11 @@ function load_mailbox(mailbox) {
 
                 // Add the email to the div
                 emailDiv.innerHTML = `
-                    <span class="sender">${email.sender}</span>
-                    <span class="subject">${email.subject}</span>
-                    <span class="timestamp">${email.timestamp}</span>
+                  <div class="row">
+                    <span class="sender col-4">${email.sender}</span>
+                    <span class="subject col-6">${email.subject}</span>
+                    <span class="timestamp col-2">${email.timestamp}</span>
+                  </div>
                 `;
 
                 // Add the div to the view
