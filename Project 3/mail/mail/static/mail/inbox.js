@@ -182,9 +182,17 @@ function view_email(email_id, mailbox) {
                 // Pre-fill the composition fields
                 document.querySelector("#compose-recipients").value =
                     email.sender;
+
+                // Add "Re: " to the subject if it doesn't already have it
+                if (email.subject.slice(0, 4) !== "Re: ") {
+                    email.subject = `Re: ${email.subject}`;
+                } else {
+                    email.subject = email.subject;
+                }
                 document.querySelector(
                     "#compose-subject"
                 ).value = `Re: ${email.subject}`;
+
                 document.querySelector(
                     "#compose-body"
                 ).value = `"On ${email.timestamp} ${email.sender} wrote:\n${email.body}\n\n"`;
