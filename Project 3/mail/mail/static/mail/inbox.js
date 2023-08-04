@@ -123,5 +123,23 @@ function view_email(email_id, mailbox) {
         .then((response) => response.json())
         .then((email) => {
             console.log(email);
+
+            // Hide the mailbox
+            document.querySelector("#emails-view").style.display = "none";
+
+            // Show the email view
+            document.querySelector("#email-view").innerHTML = `
+                <div>
+                  <span><strong>From:</strong> ${email.sender}</span>
+                  <span><strong>To:</strong> ${email.recipients}</span>
+                  <span><strong>Subject:</strong> ${email.subject}</span>
+                  <span><strong>Timestamp:</strong> ${email.timestamp}</span>
+
+                  <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
+                </div>
+                <hr>
+                <div>${email.body}</div>
+            `;
+            document.querySelector("#email-view").style.display = "block";
         });
 }
