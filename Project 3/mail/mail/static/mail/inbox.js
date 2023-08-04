@@ -100,10 +100,11 @@ function load_mailbox(mailbox) {
                     load_email(email.id, mailbox);
                 });
 
-                // If the email is read, add the class to the div and add a label
-                if (email.read) {
+                // If the email is read, add the class to the div
+                if (!email.read) {
+                } else {
                     emailDiv.classList.add("read");
-                    email;
+                    emailDiv.classList.add("bg-light");
                 }
             });
         });
