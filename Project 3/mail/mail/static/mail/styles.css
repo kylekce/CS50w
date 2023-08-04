@@ -4,4 +4,5 @@ textarea {
 
 .email:hover {
     background-color: #007bff !important;
+    cursor: pointer;
 }
