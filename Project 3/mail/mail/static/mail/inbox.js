@@ -132,7 +132,7 @@ function view_email(email_id, mailbox) {
 
             // Show the email view
             document.querySelector("#email-details-view").innerHTML = `
-                <div>
+                <div class="d-flex">
                   <span><strong>From:</strong> ${email.sender}</span>
                   <span><strong>To:</strong> ${email.recipients}</span>
                   <span><strong>Subject:</strong> ${email.subject}</span>
