@@ -172,6 +172,22 @@ function view_email(email_id, mailbox) {
                 // Archive or unarchive the email
                 archive_email(email_id, email.archived);
             });
+
+            // Add a click event listener to the reply button
+            document.querySelector("#reply").addEventListener("click", () => {
+                // Show the compose view and hide other views
+                compose_email();
+
+                // Pre-fill the composition fields
+                document.querySelector("#compose-recipients").value =
+                    email.sender;
+                document.querySelector(
+                    "#compose-subject"
+                ).value = `Re: ${email.subject}`;
+                document.querySelector(
+                    "#compose-body"
+                ).value = `On ${email.timestamp} ${email.sender} wrote:\n${email.body}\n\n`;
+            });
         });
 }
 
