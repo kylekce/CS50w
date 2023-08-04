@@ -72,7 +72,34 @@ function load_mailbox(mailbox) {
     fetch(`/emails/${mailbox}`)
         .then((response) => response.json())
         .then((emails) => {
-            // Print emails
-            console.log(emails);
+            // loop through the emails
+            emails.forEach((email) => {
+                // Create a div for the email
+                const emailDiv = document.createElement("div");
+
+                // Add the class to the div
+                emailDiv.classList.add("email");
+
+                // Add the email to the div
+                emailDiv.innerHTML = `
+                    <span class="sender">${email.sender}</span>
+                    <span class="subject">${email.subject}</span>
+                    <span class="timestamp">${email.timestamp}</span>
+                `;
+
+                // Add the div to the view
+                document.querySelector("#emails-view").append(emailDiv);
+
+                // Add a click event listener to the div
+                emailDiv.addEventListener("click", () => {
+                    // Load the email
+                    load_email(email.id, mailbox);
+                });
+
+                // If the email is read, add the class to the div
+                if (email.read) {
+                    emailDiv.classList.add("read");
+                }
+            });
         });
 }
