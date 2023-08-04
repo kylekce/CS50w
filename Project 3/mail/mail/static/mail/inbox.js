@@ -80,7 +80,7 @@ function load_mailbox(mailbox) {
                 emailDiv.classList.add("email");
                 emailDiv.classList.add("border");
                 emailDiv.classList.add("p-1");
-                // emailDiv.classList.add("mb-1");
+                emailDiv.classList.add("mb-1");
 
                 // Add the email to the div
                 emailDiv.innerHTML = `
