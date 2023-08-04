@@ -79,6 +79,7 @@ function load_mailbox(mailbox) {
                 // Add classes to the div
                 emailDiv.classList.add("email");
                 emailDiv.classList.add("border");
+                emailDiv.classList.add("border-dark");
                 emailDiv.classList.add("p-1");
                 // emailDiv.classList.add("mb-1");
 
