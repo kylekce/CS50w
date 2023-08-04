@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .addEventListener("click", () => load_mailbox("archive"));
     document.querySelector("#compose").addEventListener("click", compose_email);
 
-    //  Add a click event listener to the submit button
+    // Add a click event listener to the submit button
     document
         .querySelector("#compose-form")
         .addEventListener("submit", send_email);
