@@ -139,17 +139,20 @@ function view_email(email_id, mailbox) {
             // Inside the email view
             document.querySelector("#email-details-view").innerHTML = `
                 <h3>${email.subject}</h3>
-                <div class="d-flex flex-column">
-                  <span><strong>From:</strong> ${email.sender}</span>
-                  <span><strong>To:</strong> ${email.recipients}</span>
-                  <span><strong>Subject:</strong> ${email.subject}</span>
-                  <span><strong>Timestamp:</strong> ${email.timestamp}</span>
-                </div>
+                <hr>
+                <div class="row">
+                  <div class="d-flex flex-column col-8">
+                    <span><strong>From:</strong> ${email.sender}</span>
+                    <span><strong>To:</strong> ${email.recipients}</span>
+                    <span><strong>Subject:</strong> ${email.subject}</span>
+                    <span><strong>Timestamp:</strong> ${email.timestamp}</span>
+                  </div>
 
-                <div>
-                  <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
-                  <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
-                </div>
+                  <div class="col-4">
+                    <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
+                    <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
+                  </div>
+                  </div>
                 <hr>
                 <div>${email.body}</div>
             `;
