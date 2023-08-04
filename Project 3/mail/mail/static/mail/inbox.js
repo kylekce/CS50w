@@ -50,6 +50,7 @@ function send_email() {
 
             // Load the sent mailbox
             load_mailbox("sent");
+            console.log("Email sent!");
         });
 }
 
