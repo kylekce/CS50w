@@ -122,7 +122,13 @@ function view_email(email_id, mailbox) {
     fetch(`/emails/${email_id}`)
         .then((response) => response.json())
         .then((email) => {
-            console.log(email);
+            // Mark the email as read
+            fetch(`/emails/${email_id}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    read: true,
+                }),
+            });
 
             // Show the email details and hide other views
             document.querySelector("#emails-view").style.display = "none";
