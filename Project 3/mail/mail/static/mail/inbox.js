@@ -32,6 +32,7 @@ function compose_email() {
 }
 
 function send_email(event) {
+    // Prevent the form from submitting
     event.preventDefault();
 
     // Get the values from the form
