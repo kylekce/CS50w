@@ -124,9 +124,6 @@ function view_email(email_id, mailbox) {
         .then((email) => {
             console.log(email);
 
-            // Hide the mailbox
-            document.querySelector("#emails-view").style.display = "none";
-
             // Show the email view
             document.querySelector("#email-view").innerHTML = `
                 <div>
