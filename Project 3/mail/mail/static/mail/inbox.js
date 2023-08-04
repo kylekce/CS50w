@@ -189,9 +189,8 @@ function view_email(email_id, mailbox) {
                 } else {
                     email.subject = email.subject;
                 }
-                document.querySelector(
-                    "#compose-subject"
-                ).value = `Re: ${email.subject}`;
+                document.querySelector("#compose-subject").value =
+                    email.subject;
 
                 document.querySelector(
                     "#compose-body"
