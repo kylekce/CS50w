@@ -182,5 +182,8 @@ function archive_email(email_id, archived) {
         body: JSON.stringify({
             archived: archived,
         }),
-    }).then(() => {});
+    }).then(() => {
+        // Load the inbox
+        load_mailbox("inbox");
+    });
 }
