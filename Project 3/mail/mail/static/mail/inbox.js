@@ -184,13 +184,13 @@ function view_email(email_id, mailbox) {
                     email.sender;
 
                 // Add "Re: " to the subject if it doesn't already have it
+                let subject;
                 if (email.subject.slice(0, 4) !== "Re: ") {
-                    email.subject = `Re: ${email.subject}`;
+                    subject = `Re: ${email.subject}`;
                 } else {
-                    email.subject = email.subject;
+                    subject = email.subject;
                 }
-                document.querySelector("#compose-subject").value =
-                    email.subject;
+                document.querySelector("#compose-subject").value = subject;
 
                 document.querySelector(
                     "#compose-body"
