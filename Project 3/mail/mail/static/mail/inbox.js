@@ -161,6 +161,11 @@ function view_email(email_id, mailbox) {
             console.log(email);
 
             // Change the archive button text depending on the mailbox
+            if (email.archived === true) {
+                document.querySelector("#archive").innerHTML = "Unarchive";
+            } else {
+                document.querySelector("#archive").innerHTML = "Archive";
+            }
 
             // Add a click event listener to the archive button
             document.querySelector("#archive").addEventListener("click", () => {
