@@ -161,7 +161,7 @@ function view_email(email_id) {
 
             console.log(email);
 
-            // Hide the archive button if the mailbox is sent
+            // Hide the archive button if the mailbox is sent by the current user
             if (
                 email.sender === document.querySelector("#user-email").innerHTML
             ) {
