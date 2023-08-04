@@ -102,6 +102,7 @@ function load_mailbox(mailbox) {
 
                 // If the email is read, add the class to the div
                 if (!email.read) {
+                    emailDiv.classList.add("bg-white");
                 } else {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("bg-light");
