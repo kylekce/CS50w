@@ -51,9 +51,6 @@ function send_email(event) {
     })
         .then((response) => response.json())
         .then((result) => {
-            // Print result
-            console.log(result);
-
             // Load the sent mailbox
             load_mailbox("sent");
         });
@@ -117,5 +114,14 @@ function load_mailbox(mailbox) {
                     emailDiv.classList.remove("text-body");
                 }
             });
+        });
+}
+
+function view_email(email_id, mailbox) {
+    // Get the email
+    fetch(`/emails/${email_id}`)
+        .then((response) => response.json())
+        .then((email) => {
+            // Show the email and hide other views
         });
 }
