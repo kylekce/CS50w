@@ -162,7 +162,6 @@ function view_email(email_id, mailbox) {
 
             // Change the archive button text depending on the mailbox
 
-
             // Add a click event listener to the archive button
             document.querySelector("#archive").addEventListener("click", () => {
                 // Archive or unarchive the email
@@ -172,11 +171,11 @@ function view_email(email_id, mailbox) {
 }
 
 function archive_email(email_id, mailbox) {
-  // Archive or unarchive the email
-  fetch(`/emails/${email_id}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      archived: mailbox === "archive" ? false : true,
-    }),
-  }).then(() => {}
+    // Archive or unarchive the email
+    fetch(`/emails/${email_id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            archived: mailbox === "archive" ? false : true,
+        }),
+    }).then(() => {});
 }
