@@ -184,6 +184,6 @@ function archive_email(email_id, archived) {
         }),
     }).then(() => {
         // Load the inbox
-        load_mailbox("inbox");
+        load_mailbox("archive");
     });
 }
