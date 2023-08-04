@@ -180,7 +180,7 @@ function archive_email(email_id, archived) {
     fetch(`/emails/${email_id}`, {
         method: "PUT",
         body: JSON.stringify({
-            archived: mailbox === "archive" ? false : true,
+            archived: archived,
         }),
     }).then(() => {});
 }
