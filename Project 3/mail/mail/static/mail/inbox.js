@@ -102,7 +102,7 @@ function load_mailbox(mailbox) {
                     view_email(email.id, mailbox);
                 });
 
-                // If the email is read, add the class to the div
+                // Change the background color of the div if the email is read or unread
                 if (!email.read) {
                     emailDiv.classList.add("bg-secondary");
                     emailDiv.classList.add("text-body");
