@@ -31,7 +31,8 @@ function compose_email() {
     document.querySelector("#compose-body").value = "";
 }
 
-function send_email() {
+function send_email(event) {
+    event.preventDefault();
     console.log("You clicked send!");
 
     // Get the values from the form
