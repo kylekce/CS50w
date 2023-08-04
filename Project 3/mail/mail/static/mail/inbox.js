@@ -103,13 +103,13 @@ function load_mailbox(mailbox) {
                 // If the email is read, add the class to the div
                 if (!email.read) {
                     emailDiv.classList.add("bg-secondary");
-                    emailDiv.classList.add("text-light");
+                    emailDiv.classList.add("text-body");
                 } else {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("bg-light");
 
                     emailDiv.classList.remove("bg-secondary");
-                    emailDiv.classList.remove("text-light");
+                    emailDiv.classList.remove("text-body");
                 }
             });
         });
