@@ -27,7 +27,7 @@ function compose_email() {
 }
 
 function send_email() {
-    console.log("send_email");
+    console.log("You clicked send!");
 }
 
 function load_mailbox(mailbox) {
