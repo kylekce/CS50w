@@ -87,7 +87,7 @@ function load_mailbox(mailbox) {
                   <div class="row">
                     <span class="sender col-2">${email.sender}</span>
                     <span class="subject col-7">${email.subject}</span>
-                    <span class="timestamp col-3">${email.timestamp}</span>
+                    <span class="timestamp col-3 d-flex justify-content-end">${email.timestamp}</span>
                   </div>
                 `;
 
