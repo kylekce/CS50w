@@ -55,7 +55,6 @@ function send_email(event) {
 
             // Load the sent mailbox
             load_mailbox("sent");
-            console.log("Email sent!");
         });
 }
 
