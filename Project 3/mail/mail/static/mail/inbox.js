@@ -87,7 +87,7 @@ function load_mailbox(mailbox) {
                 // Add the email to the div
                 emailDiv.innerHTML = `
                   <div class="row">
-                    <span class="sender col-3"><span class="bg-primary">Sender:</span>${email.sender}</span>
+                    <span class="sender col-3"><i class="bi bi-person-circle"></i>${email.sender}</span>
                     <span class="subject col-6">${email.subject}</span>
                     <span class="timestamp col-3 d-flex justify-content-end">${email.timestamp}</span>
                   </div>
