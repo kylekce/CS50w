@@ -104,6 +104,7 @@ function load_mailbox(mailbox) {
                 if (!email.read) {
                     emailDiv.classList.add("bg-secondary");
                     emailDiv.classList.add("text-body");
+                    emailDiv.classList.add("border-danger");
                 } else {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("bg-light");
