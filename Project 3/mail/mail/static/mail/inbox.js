@@ -123,5 +123,7 @@ function view_email(email_id, mailbox) {
         .then((response) => response.json())
         .then((email) => {
             // Show the email and hide other views
+            document.querySelector("#emails-view").style.display = "block";
+            document.querySelector("#compose-view").style.display = "none";
         });
 }
