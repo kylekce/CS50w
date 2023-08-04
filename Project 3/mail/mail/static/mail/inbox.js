@@ -175,7 +175,7 @@ function view_email(email_id, mailbox) {
         });
 }
 
-function archive_email(email_id, mailbox) {
+function archive_email(email_id, archived) {
     // Archive or unarchive the email
     fetch(`/emails/${email_id}`, {
         method: "PUT",
