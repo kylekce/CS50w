@@ -101,18 +101,18 @@ function load_mailbox(mailbox) {
                 });
 
                 // Change the class, border, and bg of the div if the email is read or unread
-                if (!email.read) {
-                    emailDiv.classList.add("bg-secondary");
-                    emailDiv.classList.add("text-body");
-
-                    emailDiv.classList.remove("read");
-                    emailDiv.classList.remove("border-primary");
-                } else {
+                if (email.read) {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("border-primary");
 
                     emailDiv.classList.remove("bg-secondary");
                     emailDiv.classList.remove("text-body");
+                } else {
+                    emailDiv.classList.add("bg-secondary");
+                    emailDiv.classList.add("text-body");
+
+                    emailDiv.classList.remove("read");
+                    emailDiv.classList.remove("border-primary");
                 }
             });
         });
