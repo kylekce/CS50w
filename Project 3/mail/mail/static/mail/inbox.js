@@ -143,11 +143,12 @@ function view_email(email_id, mailbox) {
                   <span><strong>To:</strong> ${email.recipients}</span>
                   <span><strong>Subject:</strong> ${email.subject}</span>
                   <span><strong>Timestamp:</strong> ${email.timestamp}</span>
-                  <div>
-                    <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
-                    <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
-                  </div>
+                 
                 </div>
+                <div>
+                <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
+                <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
+              </div>
                 <hr>
                 <div>${email.body}</div>
             `;
