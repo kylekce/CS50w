@@ -111,6 +111,7 @@ function load_mailbox(mailbox) {
 
                     emailDiv.classList.remove("bg-secondary");
                     emailDiv.classList.remove("text-body");
+                    emailDiv.classList.remove("border-danger");
                 }
             });
         });
