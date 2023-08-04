@@ -149,6 +149,5 @@ function view_email(email_id, mailbox) {
                 <hr>
                 <div>${email.body}</div>
             `;
-            // document.querySelector("#email-view").style.display = "block";
         });
 }
