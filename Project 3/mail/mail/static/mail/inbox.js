@@ -26,7 +26,9 @@ function compose_email() {
     document.querySelector("#compose-body").value = "";
 }
 
-function send_email() {}
+function send_email() {
+    console.log("send_email");
+}
 
 function load_mailbox(mailbox) {
     // Show the mailbox and hide other views
