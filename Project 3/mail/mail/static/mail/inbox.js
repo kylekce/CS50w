@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .addEventListener("click", () => load_mailbox("archive"));
     document.querySelector("#compose").addEventListener("click", compose_email);
 
+    // Button to send email
+    document
+        .querySelector("#compose-form")
+        .addEventListener("submit", send_email);
+
     // By default, load the inbox
     load_mailbox("inbox");
 });
