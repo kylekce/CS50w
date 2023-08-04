@@ -144,7 +144,6 @@ function view_email(email_id, mailbox) {
                   <div class="d-flex flex-column col-8">
                     <span><strong>From:</strong> ${email.sender}</span>
                     <span><strong>To:</strong> ${email.recipients}</span>
-                    <span><strong>Subject:</strong> ${email.subject}</span>
                     <span><strong>Timestamp:</strong> ${email.timestamp}</span>
                   </div>
 
@@ -155,7 +154,7 @@ function view_email(email_id, mailbox) {
                 </div>
 
                 <hr>
-                
+
                 <div>${email.body}</div>
             `;
         });
