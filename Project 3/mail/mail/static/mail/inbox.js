@@ -147,7 +147,7 @@ function view_email(email_id, mailbox) {
                     <span><strong>Timestamp:</strong> ${email.timestamp}</span>
                   </div>
 
-                  <div class="col-4">
+                  <div class="col-4 d-flex justify-content-end">
                     <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
                     <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
                   </div>
