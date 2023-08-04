@@ -115,7 +115,7 @@ function load_mailbox(mailbox) {
         });
 }
 
-function view_email(email_id, mailbox) {
+function view_email(email_id) {
     // Get the email
     fetch(`/emails/${email_id}`)
         .then((response) => response.json())
@@ -160,6 +160,15 @@ function view_email(email_id, mailbox) {
             `;
 
             console.log(email);
+
+            // Hide the archive button if the mailbox is sent
+            if (
+                email.sender === document.querySelector("#user-email").innerHTML
+            ) {
+                document.querySelector("#archive").style.display = "none";
+            } else {
+                document.querySelector("#archive").style.display = "block";
+            }
 
             // Change the archive button text depending on the mailbox
             if (email.archived === true) {
