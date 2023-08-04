@@ -98,7 +98,7 @@ function load_mailbox(mailbox) {
 
                 // Add a click event listener to the div
                 emailDiv.addEventListener("click", () => {
-                    // Load the email
+                    // View the email
                     view_email(email.id, mailbox);
                 });
 
