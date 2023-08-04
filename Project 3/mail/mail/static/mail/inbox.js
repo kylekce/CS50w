@@ -47,6 +47,9 @@ function send_email() {
         .then((result) => {
             // Print result
             console.log(result);
+
+            // Load the sent mailbox
+            load_mailbox("sent");
         });
 }
 
