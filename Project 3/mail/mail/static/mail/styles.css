@@ -1,8 +1,3 @@
 textarea {
     min-height: 400px;
 }
-
-div .email {
-    background-color: #007bff !important;
-    cursor: pointer;
-}
