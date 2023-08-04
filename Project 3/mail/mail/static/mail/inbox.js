@@ -152,8 +152,10 @@ function view_email(email_id, mailbox) {
                     <button class="btn btn-sm btn-outline-primary" id="reply">Reply</button>
                     <button class="btn btn-sm btn-outline-primary" id="archive">Archive</button>
                   </div>
-                  </div>
+                </div>
+
                 <hr>
+                
                 <div>${email.body}</div>
             `;
         });
