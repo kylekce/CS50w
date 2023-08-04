@@ -136,7 +136,7 @@ function view_email(email_id, mailbox) {
             document.querySelector("#email-details-view").style.display =
                 "block";
 
-            // Show the email view
+            // Inside the email view
             document.querySelector("#email-details-view").innerHTML = `
                 <div class="d-flex flex-column">
                   <span><strong>From:</strong> ${email.sender}</span>
