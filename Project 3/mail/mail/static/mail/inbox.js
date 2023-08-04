@@ -118,6 +118,10 @@ function load_mailbox(mailbox) {
 }
 
 function view_email(email_id, mailbox) {
+    // Show the mailbox and hide other views
+    document.querySelector("#emails-view").style.display = "block";
+    document.querySelector("#compose-view").style.display = "none";
+
     // Get the email
     fetch(`/emails/${email_id}`)
         .then((response) => response.json())
