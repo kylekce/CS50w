@@ -30,9 +30,9 @@ function send_email() {
     console.log("You clicked send!");
 
     // Get the values from the form
-    const recipients = document.querySelector("#compose-recipients").value;
-    const subject = document.querySelector("#compose-subject").value;
-    const body = document.querySelector("#compose-body").value;
+    // const recipients = document.querySelector("#compose-recipients").value;
+    // const subject = document.querySelector("#compose-subject").value;
+    // const body = document.querySelector("#compose-body").value;
 
     // // Send the email
     // fetch("/emails", {
