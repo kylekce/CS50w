@@ -104,14 +104,13 @@ function load_mailbox(mailbox) {
                 if (!email.read) {
                     emailDiv.classList.add("bg-secondary");
                     emailDiv.classList.add("text-body");
-                    emailDiv.classList.add("border-danger");
                 } else {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("bg-light");
+                    emailDiv.classList.add("border-danger");
 
                     emailDiv.classList.remove("bg-secondary");
                     emailDiv.classList.remove("text-body");
-                    emailDiv.classList.remove("border-danger");
                 }
             });
         });
