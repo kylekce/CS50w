@@ -16,7 +16,7 @@
 
 <div id="compose-view">
     <h3>New Email</h3>
-    <form id="compose-form">
+    <form id="compose-form" onsubmit="send_email()">
         <div class=" form-group">
             From: <input disabled class="form-control" value="{{ request.user.email }}">
         </div>
