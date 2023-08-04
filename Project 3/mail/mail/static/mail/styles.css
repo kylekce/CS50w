@@ -3,5 +3,5 @@ textarea {
 }
 
 .email:hover {
-    background-color: #007bff;
+    background-color: #007bff !important;
 }
