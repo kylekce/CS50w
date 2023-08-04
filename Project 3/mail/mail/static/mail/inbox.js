@@ -105,11 +105,7 @@ function load_mailbox(mailbox) {
                     emailDiv.classList.add("read");
                     emailDiv.classList.add("bg-secondary");
                     emailDiv.classList.add("text-body");
-
-                    emailDiv.classList.remove("border-primary");
                 } else {
-                    emailDiv.classList.add("border-primary");
-
                     emailDiv.classList.remove("read");
                     emailDiv.classList.remove("bg-secondary");
                     emailDiv.classList.remove("text-body");
