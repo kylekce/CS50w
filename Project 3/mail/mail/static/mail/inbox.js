@@ -165,7 +165,7 @@ function view_email(email_id, mailbox) {
             // Add a click event listener to the archive button
             document.querySelector("#archive").addEventListener("click", () => {
                 // Archive or unarchive the email
-                archive_email(email_id, email.ar);
+                archive_email(email_id, email.archived);
             });
         });
 }
