@@ -1,5 +1,10 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    TODO
+<h1>All posts</h1>
+
+{% if user.is_authenticated %}
+<h3>Welcome, {{ user.username }}!</h3>
+{% endif %}
+
 {% endblock %}

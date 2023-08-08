@@ -11,4 +11,4 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user} posted {self.content} on {self.date}"
+        return f"{self.user} posted post #{self.id} on {self.date.strftime('%b %d %Y, %I:%M %p')}"
