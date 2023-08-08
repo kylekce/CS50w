@@ -1,15 +1,18 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-<h1>All Posts</h1>
+<div class="container">
+    <h1>All Posts</h1>
 
-{% if user.is_authenticated %}
-<div class="mb-3">
-    <label for="post" class="form-label">New Post</label>
-    <form action="" method="post">
-        <textarea class="form-control" id="post" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary">Post</button>
-    </form>
+    {% if user.is_authenticated %}
+    <div class="mb-3">
+        <label for="post" class="form-label">New Post</label>
+        <form action="" method="post">
+            <textarea class="form-control" id="post" rows="3"></textarea>
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+    </div>
+
 </div>
 
 {% endif %}
