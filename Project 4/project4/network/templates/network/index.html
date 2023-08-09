@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
     <div class="mb-3">
         <label for="post" class="form-label">New Post</label>
-        <form action="" method="post">
+        <form action="{% url 'new_post' %}" method="post">
             {% csrf_token %}
             <textarea name="content" class="form-control" id="post" rows="3"></textarea>
             <button type="submit" class="btn btn-primary mt-2">Post</button>
