@@ -1,11 +1,12 @@
+// Get the CSRF token from the cookie
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-// Replace the contents of the post into textarea with the contents of the post
 addEventListener("DOMContentLoaded", () => {
+    // Replace the contents of the post into textarea with the contents of the post
     document.querySelectorAll("#edit").forEach((button) => {
         button.onclick = () => {
             const post_id = button.dataset.post;
@@ -60,4 +61,70 @@ addEventListener("DOMContentLoaded", () => {
             };
         };
     });
+
+    // Update the like count of each post
+    document.querySelectorAll("#like_count").forEach((like_count) => {
+        post_id = parseInt(like_count.dataset.post);
+
+        // Send a GET request to the server to get the like count of the post
+        fetch(`/like_count/${post_id}`).then((response) => {
+            response.json().then((data) => {
+                like_count.innerHTML = data.like_count;
+            });
+        });
+    });
+
+    // Like or Unlike button
+    const like_button = document
+        .querySelectorAll("#like_button")
+        .forEach((button) => {
+            button.onclick = () => {
+                post_id = parseInt(button.dataset.post);
+                user_id = button.dataset.user;
+
+                // Send a GET request to the server to get the user's liked posts
+                fetch(`/likes/${user_id}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        liked_posts = data.liked_posts;
+
+                        // Check if post_id is in liked_posts
+                        if (liked_posts.indexOf(post_id) >= 0) {
+                            // Send a POST request to the server to remove a like
+                            fetch(`/unlike/${post_id}`).then((response) => {
+                                if (response.status != 200) {
+                                    alert("Error unliking a post.");
+                                }
+                            });
+
+                            // Change the button to "Like"
+                            button.innerHTML = `<i class="bi bi-heart"></i>`;
+
+                            // Update the like count of the post
+                            like_count = document.querySelector(
+                                `#like_count[data-post="${post_id}"]`
+                            );
+                            old_like_count = parseInt(like_count.innerHTML);
+                            like_count.innerHTML = old_like_count - 1;
+                        } else {
+                            // Send a POST request to the server to add a like
+                            fetch(`/like/${post_id}`).then((response) => {
+                                if (response.status != 200) {
+                                    alert("Error liking a post.");
+                                }
+                            });
+
+                            // Change the button to "Unlike"
+                            button.innerHTML = `<i class="bi bi-heart-fill text-danger"></i>`;
+
+                            // Update the like count of the post
+                            like_count = document.querySelector(
+                                `#like_count[data-post="${post_id}"]`
+                            );
+                            old_like_count = parseInt(like_count.innerHTML);
+                            like_count.innerHTML = old_like_count + 1;
+                        }
+                    });
+            };
+        });
 });

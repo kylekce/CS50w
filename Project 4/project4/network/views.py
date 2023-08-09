@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 import json 
 
-from .models import User, Post, Follow
+from .models import User, Post, Follow, Like
 
 
 def index(request):
@@ -17,9 +17,67 @@ def index(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
         
+    # All user's liked posts
+    likes = Like.objects.all()
+    liked_posts = []
+
+    try:
+        for like in likes:
+            if like.user.id == request.user.id:
+                liked_posts.append(like.post.id)
+    except:
+        liked_posts = []
+    
     return render(request, "network/index.html", {
-        "posts": page_obj
+        "posts": page_obj,
+        "liked_posts": liked_posts
     })
+
+
+def likes(request, user_id):
+    # All user's liked posts
+    likes = Like.objects.all()
+    liked_posts = []
+
+    try:
+        for like in likes:
+            if like.user.id == user_id:
+                liked_posts.append(like.post.id)
+    except:
+        liked_posts = []
+
+    return HttpResponse(json.dumps({"liked_posts": liked_posts}), content_type="application/json")
+
+
+def like_count(request, post_id):
+    # Get number of likes for a post
+    post = Post.objects.get(pk=post_id)
+    like_count = Like.objects.filter(post=post).count()
+
+    return HttpResponse(json.dumps({"like_count": like_count}), content_type="application/json")
+
+
+def like(request, post_id):
+    # Like a post
+    post = Post.objects.get(pk=post_id)
+    user = User.objects.get(pk=request.user.id)
+    like = Like(user=user, post=post)
+    if Like.objects.filter(user=user, post=post).exists():
+        pass
+    else:
+        like.save()
+
+    return HttpResponseRedirect(reverse("index"))
+
+
+def unlike(request, post_id):
+    # Unlike a post
+    post = Post.objects.get(pk=post_id)
+    user = User.objects.get(pk=request.user.id)
+    like = Like.objects.get(user=user, post=post)
+    like.delete()
+
+    return HttpResponseRedirect(reverse("index"))
 
 
 def profile(request, user_id):

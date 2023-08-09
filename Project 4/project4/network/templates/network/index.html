@@ -37,11 +37,16 @@
             </div>
             <h6 class="card-subtitle mb-2 text-muted">{{ post.date }}</h6>
             <p id="post-{{ post.id }}" class="card-text px-4">{{ post.content }}</p>
-            <div class="d-flex justify-content-end">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-link"><i class="bi bi-hand-thumbs-up text-dark"></i></button>
-                    <button type="button" class="btn btn-link"><i class="bi bi-hand-thumbs-down text-dark"></i></button>
-                </div>
+            <div class="d-flex justify-content-end align-items-center">
+                <h6 id="like_count" data-post="{{ post.id }}" class="m-0">0</h6>
+
+                {% if post.id in liked_posts %}
+                <button id="like_button" data-post="{{ post.id }}" data-user="{{ user.id }}" type="button"
+                    class="btn btn-link"><i class="bi bi-heart-fill text-danger"></i></button>
+                {% else %}
+                <button id="like_button" data-post="{{ post.id }}" data-user="{{ user.id }}" type="button"
+                    class="btn btn-link"><i class="bi bi-heart"></i></button>
+                {% endif %}
             </div>
         </div>
     </div>
