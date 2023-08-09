@@ -17,7 +17,16 @@
     <br>
 
     {% for post in posts %}
-
+    <div class="row">
+        <div class="col-2">
+            <h5>{{ post.user }}</h5>
+        </div>
+        <div class="col-10">
+            <p>{{ post.content }}</p>
+            <p>{{ post.timestamp }}</p>
+            <p>{{ post.likes }}</p>
+        </div>
+    </div>
 
 </div>
 
