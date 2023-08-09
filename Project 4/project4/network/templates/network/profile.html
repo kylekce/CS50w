@@ -47,7 +47,12 @@
     {% for post in posts %}
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-person-circle"></i> {{ post.user }}</h5>
+            <h5 class="card-title" data-bs>
+                <a href="{% url 'profile' user_id=post.user.id %}" class="text-dark text-decoration-none">
+                    <i class="bi bi-person-circle"></i>
+                    {{ post.user }}
+                </a>
+            </h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ post.date }}</h6>
             <p class="card-text px-4">{{ post.content }}</p>
         </div>
