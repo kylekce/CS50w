@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.core.paginator import Paginator
+import json 
 
 from .models import User, Post, Follow
 
@@ -19,6 +20,7 @@ def index(request):
     return render(request, "network/index.html", {
         "posts": page_obj
     })
+
 
 def profile(request, user_id):
     # Get user info and posts
@@ -48,6 +50,7 @@ def profile(request, user_id):
         "is_following": is_following
     })
 
+
 def follow(request):
     # Follow a user
     requested_user = request.POST["user_follow"]
@@ -57,6 +60,7 @@ def follow(request):
     follow.save()
 
     return HttpResponseRedirect(reverse("profile", args=(follow_request.id,)))
+
 
 def unfollow(request):
     # Unfollow a user
@@ -68,6 +72,23 @@ def unfollow(request):
 
     return HttpResponseRedirect(reverse("profile", args=(follow_request.id,)))
 
+
+def following(request):
+    # Get users that the user is following
+    user = User.objects.get(pk=request.user.id)
+    following = Follow.objects.filter(follower=user)
+    posts = Post.objects.filter(user__in=following.values("following")).order_by("id").reverse()
+
+    # Paginate posts
+    paginator = Paginator(posts, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+        
+    return render(request, "network/following.html", {
+        "posts": page_obj
+    })
+
+
 def new_post(request):
     if request.method == "POST":
 
@@ -78,6 +99,18 @@ def new_post(request):
         post.save()
 
         return HttpResponseRedirect(reverse("index"))
+
+
+def edit_post(request, post_id):
+    if request.method == "POST":
+        # Edit a post
+        content = json.loads(request.body)["content"]
+        post = Post.objects.get(pk=post_id)
+        post.content = content
+        post.save()
+
+        return HttpResponseRedirect(reverse("index"))
+
 
 def login_view(request):
     if request.method == "POST":

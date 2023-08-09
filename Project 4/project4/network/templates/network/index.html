@@ -21,14 +21,28 @@
     {% for post in posts %}
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title" data-bs>
-                <a href="{% url 'profile' user_id=post.user.id %}" class="text-dark text-decoration-none">
-                    <i class="bi bi-person-circle"></i>
-                    {{ post.user }}
-                </a>
-            </h5>
+            <div class="row">
+                <h5 class="card-title col-10">
+                    <a href="{% url 'profile' user_id=post.user.id %}" class="text-dark text-decoration-none">
+                        <i class="bi bi-person-circle"></i>
+                        {{ post.user }}
+                    </a>
+                </h5>
+                {% if user == post.user %}
+                <div class="d-flex justify-content-end col-2">
+                    <button id="edit" data-post="{{ post.id }}" type="button"
+                        class="button btn-link bg-transparent border-0">Edit</button>
+                </div>
+                {% endif %}
+            </div>
             <h6 class="card-subtitle mb-2 text-muted">{{ post.date }}</h6>
-            <p class="card-text px-4">{{ post.content }}</p>
+            <p id="post-{{ post.id }}" class="card-text px-4">{{ post.content }}</p>
+            <div class="d-flex justify-content-end">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-link"><i class="bi bi-hand-thumbs-up text-dark"></i></button>
+                    <button type="button" class="btn btn-link"><i class="bi bi-hand-thumbs-down text-dark"></i></button>
+                </div>
+            </div>
         </div>
     </div>
     {% endfor %}
