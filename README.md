@@ -11,4 +11,4 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
 - Week 7 Testing, CI/CD
 - Week 8 Scalability and Security
 
-_*Please note that this repository serves as a storage space for my projects and files completed for Harvard University's CS50x course. It is not intended to be used as a source of answers or to encourage academic dishonesty. If you are currently enrolled in the course, please refer to the course materials and complete the assignments on your own*_
+_*Please note that this repository serves as a storage space for my projects and files completed for Harvard University's CS50w course. It is not intended to be used as a source of answers or to encourage academic dishonesty. If you are currently enrolled in the course, please refer to the course materials and complete the assignments on your own*_
